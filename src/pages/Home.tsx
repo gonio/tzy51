@@ -438,14 +438,6 @@ function ContactSection() {
       schemeUrl: `amapuri://route/plan/?dname=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}&dev=0&t=0`,
       h5Url: 'https://surl.amap.com/23TnerM9bba',
     },
-    {
-      name: '百度地图',
-      desc: inAppBrowser ? '网页版导航' : '智能路线',
-      color: 'text-[#8B7355]',
-      bg: 'bg-[#8B7355]/10',
-      schemeUrl: `baidumap://map/direction?origin=name:${encodeURIComponent('我的位置')}&destination=name:${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}&mode=driving`,
-      h5Url: `https://api.map.baidu.com/direction?destination=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}&mode=driving&output=html&src=webapp.baidu.openAPIdemo`,
-    },
   ]
 
   return (
@@ -499,7 +491,7 @@ function ContactSection() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[#6B7B6B] text-xs font-light mb-1">民宿地址</p>
-                  <p className="text-[#2D3A2D] text-sm font-medium truncate">盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅</p>
+                  <p className="text-[#2D3A2D] text-sm font-medium truncate">四川省成都市都江堰市青城山镇青城山旅游区花语墅</p>
                 </div>
                 <div className="flex flex-col items-center gap-0.5 text-[#8B7355] shrink-0">
                   <Navigation className="w-4 h-4" />
