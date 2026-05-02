@@ -1,0 +1,190 @@
+- generic [ref=e3]:
+  - button [ref=e6] [cursor=pointer]:
+    - img [ref=e8]
+  - generic [ref=e12]:
+    - generic [ref=e14]:
+      - img
+      - img
+      - img
+      - img
+      - img
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: 青城山
+          - generic [ref=e20]: ·
+          - generic [ref=e21]: 竹林隐舍
+        - generic [ref=e23]:
+          - generic [ref=e24]: 町
+          - generic [ref=e25]: 竹
+          - generic [ref=e26]: 隐
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: 五一小长假 · 就去町竹隐
+        - heading "町竹隐，隐于山" [level=2] [ref=e29]
+        - paragraph [ref=e30]: 推窗见山，低眉听水，耳畔是竹林深处的声声鸟鸣。在这里，时间不再催促人，每一口呼吸都染着竹叶的清香。
+    - generic [ref=e31]:
+      - generic [ref=e34]: "01"
+      - generic [ref=e35]:
+        - heading "ABOUT US" [level=3] [ref=e37]
+        - generic:
+          - heading "关于町竹隐" [level=2]
+      - generic [ref=e39]:
+        - paragraph [ref=e40]: 町竹隐，隐于山与竹林久别重逢。一町藏雅致，竹里隐清闲，在自然里，找回自己，来青城山，住町竹隐。让眼睛去旅行，让心灵回家。
+        - generic [ref=e41]:
+          - generic [ref=e42]: 青城山脚
+          - generic [ref=e43]: 竹林环绕
+          - generic [ref=e44]: 禅意空间
+          - generic [ref=e45]: 山泉入户
+      - generic [ref=e46]:
+        - generic [ref=e48]:
+          - paragraph [ref=e49]:
+            - generic [ref=e50]: 0°
+          - paragraph [ref=e51]: 群山环抱
+        - generic [ref=e53]:
+          - paragraph [ref=e54]:
+            - generic [ref=e55]: 0%
+          - paragraph [ref=e56]: 森林覆盖率
+        - generic [ref=e58]:
+          - paragraph [ref=e59]:
+            - generic [ref=e60]: 0℃
+          - paragraph [ref=e61]: 夏日均温
+        - generic [ref=e63]:
+          - paragraph [ref=e64]:
+            - generic [ref=e65]: 0+
+          - paragraph [ref=e66]: 负氧离子
+      - img "町竹隐大厅" [ref=e68]
+    - generic [ref=e69]:
+      - generic [ref=e72]: "02"
+      - generic [ref=e73]:
+        - heading "FEATURES" [level=3] [ref=e75]
+        - generic:
+          - heading "隐世之境" [level=2]
+      - generic [ref=e76]:
+        - generic [ref=e78]:
+          - img "推窗见山" [ref=e80]
+          - generic [ref=e81]:
+            - heading "推窗见山" [level=3] [ref=e82]
+            - paragraph [ref=e83]: 临窗而坐，看山听雨，时光在此静止
+        - generic [ref=e85]:
+          - img "光影长廊" [ref=e87]
+          - generic [ref=e88]:
+            - heading "光影长廊" [level=3] [ref=e89]
+            - paragraph [ref=e90]: 木质长廊延伸向远方，每一步都是风景
+        - generic [ref=e92]:
+          - img "竹篱幽径" [ref=e94]
+          - generic [ref=e95]:
+            - heading "竹篱幽径" [level=3] [ref=e96]
+            - paragraph [ref=e97]: 竹篱围合，庭院深深，绿意盎然
+        - generic [ref=e99]:
+          - img "静读品茗" [ref=e101]
+          - generic [ref=e102]:
+            - heading "静读品茗" [level=3] [ref=e103]
+            - paragraph [ref=e104]: 一书一茶，在静谧空间里与自己独处
+    - generic [ref=e105]:
+      - generic [ref=e108]: "03"
+      - generic [ref=e109]:
+        - heading "ROOMS" [level=3] [ref=e111]
+        - generic:
+          - heading "五一特惠房型" [level=2]
+      - generic [ref=e113]: 5.1 限时特惠 · 提前预订享折扣
+      - generic [ref=e114]:
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - img "山景双床房" [ref=e118]
+            - generic [ref=e119]: 特惠
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]:
+                - heading "山景双床房" [level=3] [ref=e124]
+                - paragraph [ref=e125]: 1.2米双床 · 山水画境
+              - generic [ref=e126]:
+                - paragraph [ref=e127]: 328元/晚
+                - paragraph [ref=e128]: 原价：418元/晚
+            - generic [ref=e129]:
+              - generic [ref=e130]: 山水画境
+              - generic [ref=e131]: 日式禅意
+            - link "立即预订：183 4914 2304" [ref=e132] [cursor=pointer]:
+              - /url: tel:18349142304
+              - text: 立即预订：183 4914 2304
+              - img [ref=e133]
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - img "榻榻米茶宿" [ref=e138]
+            - generic [ref=e139]: 特惠
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - generic [ref=e143]:
+                - heading "榻榻米茶宿" [level=3] [ref=e144]
+                - paragraph [ref=e145]: 榻榻米 · 茶室入梦
+              - generic [ref=e146]:
+                - paragraph [ref=e147]: 298元/晚
+                - paragraph [ref=e148]: 原价：388元/晚
+            - generic [ref=e149]:
+              - generic [ref=e150]: 榻榻米
+              - generic [ref=e151]: 茶道体验
+            - link "立即预订：183 4914 2304" [ref=e152] [cursor=pointer]:
+              - /url: tel:18349142304
+              - text: 立即预订：183 4914 2304
+              - img [ref=e153]
+    - generic [ref=e155]:
+      - generic [ref=e158]: "04"
+      - generic [ref=e159]:
+        - heading "PHILOSOPHY" [level=3] [ref=e161]
+        - generic:
+          - heading "慢生活哲学" [level=2]
+      - paragraph [ref=e163]:
+        - text: 心静了，日子就清凉了。在町竹隐，我们用心打造每一处细节，
+        - text: 让"慢"成为一种生活的仪式感。
+      - generic [ref=e164]:
+        - generic [ref=e166]:
+          - img "一盏茶的时光" [ref=e168]
+          - generic [ref=e169]:
+            - heading "一盏茶的时光" [level=3] [ref=e170]
+            - paragraph [ref=e171]: 席地而坐，煮水烹茶。看茶叶在沸水中缓缓舒展，听窗外竹叶沙沙。这一刻，时间为你停留。
+        - generic [ref=e173]:
+          - img "一夜好眠的温柔" [ref=e175]
+          - generic [ref=e176]:
+            - heading "一夜好眠的温柔" [level=3] [ref=e177]
+            - paragraph [ref=e178]: 棉麻床品轻抚肌肤，木质家具的温润触感伴你入眠。在町竹隐，每一夜都是温柔的拥抱。
+        - generic [ref=e180]:
+          - img "月下闲庭的惬意" [ref=e182]
+          - generic [ref=e183]:
+            - heading "月下闲庭的惬意" [level=3] [ref=e184]
+            - paragraph [ref=e185]: 竹篱围合的私家庭院，流水潺潺，月光如水。三五好友围坐木桌，品茶论道，不负良宵。
+      - generic [ref=e188]:
+        - paragraph [ref=e189]: 一町藏雅致 · 竹里隐清闲
+        - paragraph [ref=e190]:
+          - text: 在自然里，找回自己。来青城山，住町竹隐。
+          - text: 让眼睛去旅行，让心灵回家。
+    - generic [ref=e191]:
+      - generic [ref=e194]: "05"
+      - generic [ref=e195]:
+        - heading "CONTACT" [level=3] [ref=e197]
+        - generic:
+          - heading "预订咨询" [level=2]
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - paragraph [ref=e201]: 预订您的竹隐时光
+          - heading "町竹隐民宿" [level=3] [ref=e202]
+        - generic [ref=e204]:
+          - generic [ref=e206]: 二维码
+          - paragraph [ref=e207]: 扫码加微信
+        - generic [ref=e208]:
+          - generic [ref=e210]:
+            - img [ref=e212]
+            - generic [ref=e214]:
+              - paragraph [ref=e215]: 预订热线
+              - paragraph [ref=e216]: 183 4914 2304
+          - generic [ref=e218]:
+            - img [ref=e220]
+            - generic [ref=e223]:
+              - paragraph [ref=e224]: 民宿地址
+              - paragraph [ref=e225]: 四川省成都市都江堰市青城山町竹隐
+      - paragraph [ref=e227]: 五一小长假 · 町竹隐期待与您相遇
+    - generic [ref=e230]:
+      - img [ref=e231]
+      - generic [ref=e234]: 好项目 999+
+  - link "立即预订：183 4914 2304" [ref=e235] [cursor=pointer]:
+    - /url: tel:18349142304
+    - generic [ref=e236]:
+      - img [ref=e237]
+      - text: 立即预订：183 4914 2304
