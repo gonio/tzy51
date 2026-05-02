@@ -62,7 +62,8 @@
       "Bash(npx tsc *)",
       "Bash(git remote *)",
       "Bash(git push *)",
-      "Bash(git merge *)"
+      "Bash(git merge *)",
+      "Bash(git rm *)"
     ]
   }
 }

@@ -37,6 +37,11 @@ function HeroSection() {
           muted
           loop
           playsInline
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5"
+          x5-video-player-fullscreen="false"
+          preload="auto"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 4, ease: 'easeOut' }}
