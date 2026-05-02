@@ -47,7 +47,12 @@
       "Bash(cp /e/code/app/package.json /e/code/app/package-lock.json /e/code/app/vite.config.ts /e/code/app/index.html /e/code/app/postcss.config.js /e/code/app/tailwind.config.js /e/code/app/components.json /e/code/app/eslint.config.js /e/code/tzy/)",
       "Bash(cp /e/code/app/tsconfig.json /e/code/app/tsconfig.app.json /e/code/app/tsconfig.node.json /e/code/app/.gitignore /e/code/tzy/)",
       "Bash(npx --yes sharp-cli --version)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(ffmpeg -version)",
+      "Bash(ffprobe *)",
+      "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video.mp4 -c:v libx264 -crf 26 -preset medium -profile:v main -movflags +faststart -c:a aac -b:a 64k -y /e/code/tzy/public/images/hero-video-h264.mp4)",
+      "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video.mp4 -vf scale=576:1024 -c:v libx264 -crf 30 -preset medium -profile:v main -movflags +faststart -c:a aac -b:a 48k -y /e/code/tzy/public/images/hero-video-h264.mp4)",
+      "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video.mp4 -vf scale=480:854 -c:v libx264 -crf 32 -preset medium -profile:v main -movflags +faststart -c:a aac -b:a 40k -y /e/code/tzy/public/images/hero-video-h264.mp4)"
     ]
   }
 }
