@@ -428,14 +428,6 @@ function ContactSection() {
 
   const mapOptions = [
     {
-      name: '腾讯地图',
-      desc: inAppBrowser ? '网页版导航' : '微信生态推荐',
-      color: 'text-[#4A90D9]',
-      bg: 'bg-[#4A90D9]/10',
-      schemeUrl: `qqmap://map/routeplan?type=drive&from=我的位置&fromcoord=CurrentLocation&to=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}`,
-      h5Url: `https://map.qq.com/?type=place&keyword=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}`,
-    },
-    {
       name: '高德地图',
       desc: inAppBrowser ? '网页版导航' : '精准导航',
       color: 'text-[#4A7C59]',
