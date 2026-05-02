@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import { Phone, MapPin, Leaf, ChevronRight, Music, VolumeX } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Phone, MapPin, Leaf, ChevronRight, Music, VolumeX, Copy, X, Navigation } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   ScrollProgress,
   FadeIn,
@@ -386,6 +386,68 @@ function PhilosophySection() {
 
 /* ─── 预订咨询 ─── */
 function ContactSection() {
+  const [showMapSheet, setShowMapSheet] = useState(false)
+  const [toast, setToast] = useState<string | null>(null)
+
+  const ua = navigator.userAgent
+  const isWechat = /MicroMessenger/i.test(ua)
+  const isQQ = /QQ\//i.test(ua)
+  const inAppBrowser = isWechat || isQQ
+
+  const openMap = (schemeUrl: string, h5Url: string) => {
+    if (inAppBrowser) {
+      window.location.href = h5Url
+    } else {
+      window.location.href = schemeUrl
+    }
+  }
+
+  const copyAddress = () => {
+    const address = '盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅'
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(address).then(() => {
+        setToast('地址已复制')
+        setTimeout(() => setToast(null), 2000)
+      })
+    } else {
+      const input = document.createElement('input')
+      input.value = address
+      document.body.appendChild(input)
+      input.select()
+      document.execCommand('copy')
+      document.body.removeChild(input)
+      setToast('地址已复制')
+      setTimeout(() => setToast(null), 2000)
+    }
+  }
+
+  const mapOptions = [
+    {
+      name: '腾讯地图',
+      desc: inAppBrowser ? '网页版导航' : '微信生态推荐',
+      color: 'text-[#4A90D9]',
+      bg: 'bg-[#4A90D9]/10',
+      schemeUrl: `qqmap://map/routeplan?type=drive&from=我的位置&fromcoord=CurrentLocation&to=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}`,
+      h5Url: `https://map.qq.com/?type=place&keyword=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}`,
+    },
+    {
+      name: '高德地图',
+      desc: inAppBrowser ? '网页版导航' : '精准导航',
+      color: 'text-[#4A7C59]',
+      bg: 'bg-[#4A7C59]/10',
+      schemeUrl: `amapuri://route/plan/?dname=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}&dev=0&t=0`,
+      h5Url: 'https://surl.amap.com/23TnerM9bba',
+    },
+    {
+      name: '百度地图',
+      desc: inAppBrowser ? '网页版导航' : '智能路线',
+      color: 'text-[#8B7355]',
+      bg: 'bg-[#8B7355]/10',
+      schemeUrl: `baidumap://map/direction?origin=name:${encodeURIComponent('我的位置')}&destination=name:${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}&mode=driving`,
+      h5Url: `https://api.map.baidu.com/direction?destination=${encodeURIComponent('盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅')}&mode=driving&output=html&src=webapp.baidu.openAPIdemo`,
+    },
+  ]
+
   return (
     <section className="py-20 px-5 relative">
       <SectionNumber num="05" />
@@ -426,16 +488,22 @@ function ContactSection() {
 
             <FadeIn delay={0.35}>
               <motion.div
-                className="flex items-center gap-4 bg-[#F5F0E8]/60 backdrop-blur-sm rounded-2xl p-5 border border-white/50"
+                className="flex items-center gap-4 bg-[#F5F0E8]/60 backdrop-blur-sm rounded-2xl p-5 border border-white/50 cursor-pointer"
                 whileHover={{ x: 8, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 transition={softSpring}
+                onClick={() => setShowMapSheet(true)}
               >
                 <div className="w-12 h-12 rounded-full bg-[#8B7355] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#8B7355]/20">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <p className="text-[#6B7B6B] text-xs font-light mb-1">民宿地址</p>
-                  <p className="text-[#2D3A2D] text-sm font-medium">四川省成都市都江堰市青城山町竹隐</p>
+                  <p className="text-[#2D3A2D] text-sm font-medium truncate">盛世桃源(两盐路店) 四川省成都市都江堰市青城山镇青城山旅游区花语墅</p>
+                </div>
+                <div className="flex flex-col items-center gap-0.5 text-[#8B7355] shrink-0">
+                  <Navigation className="w-4 h-4" />
+                  <span className="text-[10px] font-medium">地图</span>
                 </div>
               </motion.div>
             </FadeIn>
@@ -443,12 +511,107 @@ function ContactSection() {
         </GlassCard>
       </ScaleIn>
 
-
       <FadeIn delay={0.4} className="mt-12 text-center">
         <p className="text-[#9B9B9B] text-xs font-light tracking-widest">
           五一小长假 · 町竹隐期待与您相遇
         </p>
       </FadeIn>
+
+      {/* 地图选择面板 */}
+      <AnimatePresence>
+        {showMapSheet && (
+          <>
+            <motion.div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowMapSheet(false)}
+            />
+            <motion.div
+              className="fixed bottom-0 left-0 right-0 z-50 bg-[#FDFBF7] rounded-t-3xl px-5 pt-6 pb-8 max-w-md mx-auto"
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h4 className="text-[#2D3A2D] font-medium text-lg">选择地图应用</h4>
+                <button
+                  onClick={() => setShowMapSheet(false)}
+                  className="w-8 h-8 rounded-full bg-[#F5F0E8] flex items-center justify-center text-[#9B9B9B]"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="space-y-3 mb-4">
+                {mapOptions.map((opt) => (
+                  <motion.button
+                    key={opt.name}
+                    className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#F5F0E8] text-left active:bg-[#F5F0E8]"
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      openMap(opt.schemeUrl, opt.h5Url)
+                      setShowMapSheet(false)
+                    }}
+                  >
+                    <div className={`w-10 h-10 rounded-xl ${opt.bg} ${opt.color} flex items-center justify-center shrink-0`}>
+                      <Navigation className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[#2D3A2D] font-medium text-sm">{opt.name}</p>
+                      <p className="text-[#9B9B9B] text-xs font-light">{opt.desc}</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-[#C5C5C5]" />
+                  </motion.button>
+                ))}
+
+                <motion.button
+                  className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#F5F0E8] text-left active:bg-[#F5F0E8]"
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    copyAddress()
+                    setShowMapSheet(false)
+                  }}
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#F5F0E8] text-[#6B7B6B] flex items-center justify-center shrink-0">
+                    <Copy className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[#2D3A2D] font-medium text-sm">复制地址</p>
+                    <p className="text-[#9B9B9B] text-xs font-light">分享给好友或自行搜索</p>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-[#C5C5C5]" />
+                </motion.button>
+              </div>
+
+              <motion.button
+                className="w-full py-3.5 rounded-2xl bg-[#F5F0E8] text-[#6B7B6B] font-medium text-sm active:bg-[#EBE5DA]"
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setShowMapSheet(false)}
+              >
+                取消
+              </motion.button>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* 复制成功提示 */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            className="fixed top-1/2 left-1/2 z-[60] bg-[#2D3A2D]/90 text-white text-sm font-light px-6 py-3 rounded-2xl backdrop-blur-sm"
+            style={{ transform: 'translate(-50%, -50%)' }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
