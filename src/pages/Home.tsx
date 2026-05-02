@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Phone, MapPin, Leaf, ChevronRight, Music, VolumeX, Copy, X, Navigation } from 'lucide-react'
+import { Phone, MapPin, ChevronRight, Music, VolumeX, Copy, X, Navigation } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ScrollProgress,
@@ -26,25 +26,46 @@ import {
 
 /* ─── Hero ─── */
 function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isWechat] = useState(() => /MicroMessenger/i.test(navigator.userAgent))
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // 微信内尝试自动播放
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // 自动播放失败，显示 poster 即可
+      })
+    }
+
+    if (isWechat) {
+      // 微信需要延迟一点再尝试播放
+      const timer = setTimeout(tryPlay, 300)
+      return () => clearTimeout(timer)
+    } else {
+      tryPlay()
+    }
+  }, [isWechat])
+
   return (
     <section className="relative w-full overflow-hidden">
       <div className="relative w-full aspect-[3/4] max-h-[700px]">
         {/* 视频背景 */}
-        <motion.video
+        <video
+          ref={videoRef}
           src="/images/hero-video.mp4"
+          poster="/images/hero-poster.jpg"
           className="w-full h-full object-cover"
-          autoPlay
           muted
           loop
           playsInline
           webkit-playsinline="true"
           x5-playsinline="true"
-          x5-video-player-type="h5"
+          x5-video-player-type="h5-page"
           x5-video-player-fullscreen="false"
-          preload="auto"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 4, ease: 'easeOut' }}
+          preload="metadata"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent" />
 
@@ -782,18 +803,7 @@ export default function Home() {
         <PhilosophySection />
         <ContactSection />
 
-        <div className="pb-28">
-          <div className="text-center py-10">
-            <motion.div
-              className="inline-flex items-center gap-2 bg-[#F5F0E8]/80 backdrop-blur-sm rounded-full px-6 py-2.5 border border-white/50"
-              whileHover={{ scale: 1.08, rotate: 2 }}
-              transition={softSpring}
-            >
-              <Leaf className="w-4 h-4 text-[#4A7C59]" />
-              <span className="text-[#6B7B6B] text-sm font-light">好项目 999+</span>
-            </motion.div>
-          </div>
-        </div>
+        <div className="pb-28" />
       </div>
 
       <FloatingCta />
