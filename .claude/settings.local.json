@@ -57,7 +57,12 @@
       "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video-orig.mp4 -c:v libx264 -crf 22 -preset slow -profile:v main -movflags +faststart -c:a aac -b:a 48k -y /e/code/tzy/public/images/hero-video.mp4)",
       "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video-orig.mp4 -c:v libx264 -crf 25 -preset medium -profile:v main -movflags +faststart -c:a aac -b:a 48k -y /e/code/tzy/public/images/hero-video.mp4)",
       "Bash(ffmpeg -i '/e/code/tzy/public/audio/Grrreta - 悲悯_L.ogg' -c:a libmp3lame -b:a 192k -y /e/code/tzy/public/audio/bgm.mp3)",
-      "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video.mp4 -c:v copy -an -y /e/code/tzy/public/images/hero-video-nosound.mp4)"
+      "Bash(ffmpeg -i /e/code/tzy/public/images/hero-video.mp4 -c:v copy -an -y /e/code/tzy/public/images/hero-video-nosound.mp4)",
+      "Bash(git commit *)",
+      "Bash(npx tsc *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git merge *)"
     ]
   }
 }

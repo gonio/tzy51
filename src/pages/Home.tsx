@@ -454,9 +454,11 @@ function ContactSection() {
 
           <FadeIn delay={0.2} className="w-36 h-36 bg-[#F5F0E8]/80 rounded-2xl mx-auto mb-8 flex items-center justify-center backdrop-blur-sm border border-white/50">
             <div className="text-center">
-              <div className="w-24 h-24 border-2 border-[#4A7C59]/30 rounded-xl mx-auto mb-2 flex items-center justify-center bg-white/50">
-                <span className="text-[#4A7C59] text-xs font-light">二维码</span>
-              </div>
+              <img
+                src="/images/qr_20260502163655_100_432.jpg"
+                alt="微信二维码"
+                className="w-24 h-24 rounded-xl object-cover border-2 border-[#4A7C59]/30 mx-auto mb-2"
+              />
               <p className="text-[#6B7B6B] text-xs font-light">扫码加微信</p>
             </div>
           </FadeIn>
