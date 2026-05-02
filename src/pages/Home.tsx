@@ -504,7 +504,7 @@ function MusicPlayer() {
 
   return (
     <>
-      <audio ref={audioRef} src="/audio/Grrreta - 悲悯_L.ogg" loop autoPlay preload="auto" />
+      <audio ref={audioRef} src="/audio/bgm.mp3" loop autoPlay preload="auto" />
       <div className="fixed top-4 right-4 z-[60] w-10 h-10">
         {isPlaying && (
           <>
