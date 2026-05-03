@@ -270,8 +270,9 @@ function FeaturesSection() {
 /* ─── 五一特惠房型 ─── */
 function RoomsSection() {
   const rooms = [
-    { image: '/images/twin-landscape.jpg', name: '山景双床房', desc: '1.2米双床 · 山水画境', price: 328, original: 418, tags: ['山水画境', '日式禅意'] },
-    { image: '/images/tatami-suite.jpg', name: '榻榻米茶宿', desc: '榻榻米 · 茶室入梦', price: 298, original: 388, tags: ['榻榻米', '茶道体验'] },
+    { image: '/images/bedroom-corner-51.jpg', name: '榻榻米茶宿', desc: '榻榻米 · 茶室入梦', price: 328, original: 418, tags: ['榻榻米', '茶道体验'] },
+    { image: '/images/twin-hill.jpg', name: '阳光山景房', desc: '1.2米双床 · 山水画境', price: 368, original: 468, tags: ['山水画境', '中式禅意'] },
+    { image: '/images/twin-room.jpg', name: '庭院温馨房', desc: '庭院几许 · 温馨舒适', price: 238, original: 308, tags: ['庭院景观', '静谧空间'] },
   ]
 
   return (
@@ -326,7 +327,7 @@ function RoomsSection() {
                   href="tel:18349142304"
                   className="w-full mt-5 bg-[#4A7C59] hover:bg-[#3D6548] text-white text-sm font-medium py-3.5 rounded-2xl transition-colors flex items-center justify-center gap-1 shadow-lg shadow-[#4A7C59]/15"
                 >
-                  立即预订：183 4914 2304
+                  立即预订
                   <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
@@ -339,10 +340,62 @@ function RoomsSection() {
   )
 }
 
+/* ─── 山野露营 ─── */
+function CampingSection() {
+  const camps = [
+    { image: '/images/luying1.jpg', title: '竹林茶席', desc: '阳光斑驳的竹影下，一壶清茶，几碟时令小食' },
+    { image: '/images/luying2.jpg', title: '露台露营', desc: '在竹林深处搭一顶帐篷，听风品茶，与自然为伴' },
+  ]
+
+  return (
+    <section className="py-20 px-5 bg-gradient-to-b from-[#F5F0E8] via-[#F8F5EE] to-[#F5F0E8] relative overflow-hidden">
+      <div className="absolute top-20 left-0 w-48 h-48 bg-[#4A7C59]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 right-0 w-64 h-64 bg-[#8B7355]/5 rounded-full blur-3xl pointer-events-none" />
+
+      <SectionNumber num="04" />
+      <SectionTitle en="CAMPING" zh="山野露营" />
+
+      <BlurReveal className="text-center mb-8" delay={0.1}>
+        <p className="text-[#6B7B6B] leading-[2] text-[15px] font-light tracking-wide">
+          在竹林深处的露台上，摆一席清茶，听风穿竹叶。
+          <br />
+          搭一顶帐篷在此，白日品茶，夜晚观星，把时光还给山野。
+        </p>
+      </BlurReveal>
+
+      <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.12}>
+        {camps.map((c) => (
+          <StaggerItem key={c.title} variant="flip" className="h-full">
+            <motion.div
+              className="h-full bg-white/70 backdrop-blur-lg rounded-2xl shadow-[0_4px_20px_rgba(74,124,89,0.06)] border border-white/50 overflow-hidden flex flex-col"
+              whileHover={{ y: -8, rotateX: 5, boxShadow: '0 16px 48px rgba(74,124,89,0.12)' }}
+              transition={softSpring}
+              style={{ perspective: 800 }}
+            >
+              <div className="aspect-[3/4] overflow-hidden">
+                <motion.img
+                  src={c.image}
+                  alt={c.title}
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.7 }}
+                />
+              </div>
+              <div className="p-4 flex flex-col items-center text-center flex-1">
+                <h3 className="text-[#2D3A2D] font-medium text-sm mb-1 tracking-wider">{c.title}</h3>
+                <p className="text-[#6B7B6B] text-xs leading-relaxed font-light">{c.desc}</p>
+              </div>
+            </motion.div>
+          </StaggerItem>
+        ))}
+      </StaggerContainer>
+    </section>
+  )
+}
+
 /* ─── 慢生活哲学 ─── */
 function PhilosophySection() {
   const items = [
-    { title: '一盏茶的时光', desc: '席地而坐，煮水烹茶。看茶叶在沸水中缓缓舒展，听窗外竹叶沙沙。这一刻，时间为你停留。', image: '/images/tatami-tea.jpg' },
     { title: '一夜好眠的温柔', desc: '棉麻床品轻抚肌肤，木质家具的温润触感伴你入眠。在町竹隐，每一夜都是温柔的拥抱。', image: '/images/bedroom-corner.jpg' },
     { title: '月下闲庭的惬意', desc: '竹篱围合的私家庭院，流水潺潺，月光如水。三五好友围坐木桌，品茶论道，不负良宵。', image: '/images/night-courtyard.jpg' },
   ]
@@ -352,7 +405,7 @@ function PhilosophySection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#4A7C59]/5 rounded-full blur-3xl pointer-events-none" />
       <FloatingParticles count={8} />
 
-      <SectionNumber num="04" />
+      <SectionNumber num="05" />
       <SectionTitle en="PHILOSOPHY" zh="慢生活哲学" />
 
       <BlurReveal className="text-center mb-10" delay={0.1}>
@@ -460,7 +513,7 @@ function ContactSection() {
 
   return (
     <section className="py-20 px-5 relative">
-      <SectionNumber num="05" />
+      <SectionNumber num="06" />
       <SectionTitle en="CONTACT" zh="预订咨询" />
 
       <ScaleIn>
@@ -800,6 +853,7 @@ export default function Home() {
         <AboutSection />
         <FeaturesSection />
         <RoomsSection />
+        <CampingSection />
         <PhilosophySection />
         <ContactSection />
 
