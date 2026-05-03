@@ -424,7 +424,7 @@ function PhilosophySection() {
               whileHover={{ scale: 1.02 }}
               transition={softSpring}
             >
-              <div className="w-[130px] shrink-0 overflow-hidden">
+              <div className="w-[130px] shrink-0 aspect-[3/4] overflow-hidden">
                 <motion.img
                   src={item.image}
                   alt={item.title}
